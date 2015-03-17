@@ -2,7 +2,7 @@
   "name": "ddocs",
   "version": "0.0.1",
   "description": "deploys couchdb design documents, designed to be a part of a CI flow",
-  "keywords" : ["CI", "couchdb", "design-documents"]
+  "keywords" : ["CI", "continous-integration", "couchdb", "design-documents"],
   "main": "lib",
   "bin" : {
      "ddocs-push" : "bin/push"
