@@ -1,0 +1,29 @@
+{
+  "name": "ddocs",
+  "version": "0.0.1",
+  "description": "deploys couchdb design documents, designed to be a part of a CI flow",
+  "keywords" : ["CI", "couchdb", "design-documents"]
+  "main": "lib",
+  "bin" : {
+     "ddocs-push" : "bin/push"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "couchapp": "~0.9.1",
+    "optimist": "~0.3.5",
+    "log4js": "~0.5.6",
+    "async": "~0.1.22",
+    "errs": "~0.2.3"
+  },
+  "devDependencies": {
+    "mocha-ui-exports": "~0.2.2",
+    "mocha": "~1.20.1"
+  },
+  "license": "MIT",
+  "repository": "git+http://TBD!!!",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.com/"
+  }
+}
