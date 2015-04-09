@@ -1,0 +1,34 @@
+{
+  "name": "mypackage",
+  "version": "0.0.0",
+  "description": "fixture for ddocs-deploy",
+  "main": "lib",
+  "scripts": {
+    "test": "mocha"
+  },
+  "ddocs": {
+    "push" : { 
+      "ddoc1" : {
+        "src"  : "test/fixtures/src1", 
+        "host" : "http://host1:5984/",
+        "dbs" : [ 
+          "db1",
+          "db2"
+        ]
+      },
+      "ddoc2" : {
+        "src"  : "test/fixtures/src2", 
+        "host" : "http://host2:5984/",
+        "dbs" : [ 
+          "db1",
+          "db2"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "ddocs" : "*"
+  },
+  "registry": "git+http://foo/bar",
+  "license": "MIT"
+}

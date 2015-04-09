@@ -1,0 +1,14 @@
+{
+  "name": "mypackage",
+  "version": "0.0.0",
+  "description": "fixture for ddocs-deploy",
+  "main": "lib",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "ddocs" : "*"
+  },
+  "registry": "git+http://foo/bar",
+  "license": "MIT"
+}
