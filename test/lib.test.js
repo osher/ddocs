@@ -1,15 +1,15 @@
-var a = require('../')
+var SUT = require('../')
 
 module.exports = 
-{ "ddocDeployer" : 
-  { //TODO - leave only the right one...
-    "should be a module object" : null
-  , "should be a factory function that names X arguments - ????" : null
-  , "should be a strategy function that names X arguments - ??? " : null
-    //TODOEnd
-  , "API" : 
-    { ".<member>" : null
+{ "ddoc/lib" : 
+  { "should be a strategy function that names 2 arguments - args, callback " : 
+    function() {
+        Should.exist(SUT);
+        SUT.should.be.a.Function;
+        SUT.length.should.eql(2)
     }
-  , ".<member>(attr,inv)" : null
+  , "when used with valid arguments" : 
+    {
+    }
   }
 }
