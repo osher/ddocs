@@ -1,6 +1,5 @@
 var log4js  = require('log4js')
-  , args    = require('../lib/args').parse(process.argv)
-  , push    = require('../lib/')
+  , args    = require('../lib/args').of(process.argv)
   , log     = log4js.getLogger("push")
   , log_lvl = args.l.toUpperCase()
   ;
@@ -12,17 +11,19 @@ log4js.configure(
     [ { type   : "console"
       , layout : 
         { type   : "pattern"
-        , pattern: "%[%r [%p]%]%n %m%n"
+        , pattern: "%[%r [%p] %c %] %m"
         }
       }
     ]
   }
 );
-log.setLevel('INFO|WARN|ERROR|FATAL'.split('|').indexOf(log_lvl) == -1 ? 'DEBUG' : log_lvl);
+log4js.setGlobalLogLevel('INFO|WARN|ERROR|FATAL'.split('|').indexOf(log_lvl) == -1 ? 'DEBUG' : log_lvl);
 
+var push    = require('../lib/')
+  ;
 //announcements
 log.info("starting push ddocs of ", args.package );
-log.debug("full args\n", args);
+log.debug("full args\n%s",  require('util').inspect( args, { depth: 5, colors: true }));
 
 //hook for exceptions
 process.on('uncaughtException', function(err) {
@@ -32,5 +33,5 @@ process.on('uncaughtException', function(err) {
 
 //fire!
 push(args, function(err) {
-    log[err?"error":"info"]("pushing ddocs complete with ", err || "success");
+    log[err?"error":"info"]("pushing ddocs complete: ", err || "Success");
 })
