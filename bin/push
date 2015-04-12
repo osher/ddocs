@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../push.js');
+require('./push.js');
