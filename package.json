@@ -21,7 +21,7 @@
     "log4js": "~0.5.8",
     "async": "~0.1.22",
     "couchapp": "~0.9.1",
-    "errs": "~0.2.3"
+    "watch": "~0.16.0"
   },
   "devDependencies": {
     "mocha-ui-exports": "~0.2.2",
