@@ -1,0 +1,1 @@
+require('log4js').setGlobalLogLevel("WARN")
