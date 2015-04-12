@@ -1,4 +1,6 @@
-test
 .npmignore
 .hgignore
-*.njsproj
+.travis.yml
+*.tgz
+test
+tmp
