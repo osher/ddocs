@@ -57,7 +57,8 @@ runs on a different host, then, you can use the `package.json` to list the docs
 and the host of the 2 first envs, and set a build plan per env as following, where
 each env has it's own OPTIONS set in the build-plan configuration:
 
-|env build plan| value for OPTIONS | 
+| env build plan | value for OPTIONS | 
+| -------------- | ----------------- |
 | dev   | `--myddoc1.dbs mydb_dev` |
 | stage | `--myddoc1.dbs mydb_stg` |
 | prod  | `--myddoc1.dbs mydb_prod --host http://admin@shhh!!!:couchdb-prod.myapp.com` |
