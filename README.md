@@ -1,4 +1,4 @@
-ddocs-deployer
+ddocs-deployer [![Build Status](https://secure.travis-ci.org/osher/ddocs.png?branch=master)](http://travis-ci.org/osher/ddocs)
 ==============
 
 Hanlde in simple CLI command all design-documents expressed in a package. The 
