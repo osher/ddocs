@@ -39,7 +39,7 @@ In this case, the tool should be used as a CLI tool in a context as described
 above.
 
 
-As part of CI flow - use the prepublish hook
+As part of CI flow - use the postpublish hook
 --------------------------------------------
 This scenario is meant for any target host that is updated as part of a CI flow,
 i.e - from within a builder host by a builder script/action.
@@ -52,12 +52,15 @@ package wrapped and shipped to an NPM registry. However, since the target of the
 design-documents is a couchdb host, and not an npm-registry, we can use an npm-
 hook for that, and publish the package normally.
 
-Recommended hooks are `prepublish` or `postpublish`, depends on your personal 
-flow.
+Recommended hook is `postpublish`, because the publish of a design-document is
+actually uploading it to the couchdb, where `postpublish` is not called when a
+developer calls `npm install`, and is called *after* `test` hook is run, where 
+unit-tests naturally run. However, can use any npm hook according to your flow,
+for example, if the unit-tests expect the ddocs to be tested in the db.
 
 ```
   "scripts" : {
-    "prepublish" : "ddocs-deploy"
+    "postpublish" : "ddocs-deploy"
   },
 ```
 
@@ -65,8 +68,8 @@ flow.
 `pacakge.json` (at least as --dev-dependency), so it will be accessible on the 
 project's folder for example - on the build-agent).
 
-Using a prepublish hook for advanced CI flow
---------------------------------------------
+Advanced CI flows 
+-----------------
 
 In case you have many environments, and you have a build-plan per environment you 
 can use a build-time env-variable to pass build-plan specific witches.
@@ -75,7 +78,7 @@ For this, you'll have to set your `package.json` as following:
 
 ```
   "scripts" : {
-    "prepublish" : "ddocs-deploy $OPTIONS"
+    "postpublish" : "ddocs-deploy $OPTIONS"
   },
 ```
 
@@ -106,9 +109,7 @@ as the development couchdb host (in section `ddocs.host`):
 
 Note that the `dbs` section is not given in the `package.json`, assuring that 
 running the tool without being specific (without parameters, relaying just on
-defaults) will not result in deploying the docs to a database unintentionally
-(for example, when developer runs `npm install`, and his env does not define
-the `$OPTIONS` variable).
+defaults) will not result in deploying the docs to a database unintentionally.
 
 That being cascaded with per env-build-plan switches, where each env has it's 
 own cascading switches on `$OPTIONS` set in the build-plan configuration:
