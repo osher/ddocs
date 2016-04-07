@@ -192,7 +192,7 @@ Meant to be installed once as a CLI tool on the deployer's host:
 npm install ddocs -g
 ```
 
-Can be installed as package dependency, in this case, the command will be visible from the projects folder
+Can be installed as package dependency, in this case, the command will be visible from the projects folder (requires your $PATH or %PATH% variable to contain ./node_modules/.bin)
 
 ```
 npm install ddocs --save-dev
