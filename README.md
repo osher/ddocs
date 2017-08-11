@@ -1,7 +1,7 @@
 ddocs-deployer [![Build Status](https://secure.travis-ci.org/osher/ddocs.png?branch=master)](http://travis-ci.org/osher/ddocs)
 ==============
 
-Hanlde in simple CLI command all design-documents expressed in a package. The 
+Handle in simple CLI command all design-documents expressed in a package. The 
 tool is meant for DevOps & CI flows.
  * hiding all the low-level details of pushing each couchapp in the pacakge to 
    it's target db or dbs
